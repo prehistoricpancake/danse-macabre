@@ -1,2 +1,3 @@
 env/
 dansemacabre/__pycache__/
+.env
