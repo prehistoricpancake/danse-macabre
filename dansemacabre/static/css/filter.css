@@ -1,7 +1,7 @@
 body {
     background-color: #f1f1f1;
     font-family: 'Merriweather', serif;
-font-family: 'EB Garamond', serif;
+    font-family: 'EB Garamond', serif;
 }
 
 .card-deck {
@@ -10,4 +10,23 @@ font-family: 'EB Garamond', serif;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-gap: 1px;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px !important;
+    /* padding-top: 50px; */
+    margin: 50px;
+}
+
+.centered{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, minmax(150px, auto));
+    grid-gap: 10px;
+    max-width: 960px;
+    margin: 0 auto;
 }

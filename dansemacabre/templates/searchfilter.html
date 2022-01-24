@@ -1,5 +1,7 @@
+{%extends 'main/base.html'%}
 {% load bootstrap4 %}
  {% load static%}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +10,7 @@
     <title>Danse Macabre - {{title}}</title>
     {% else %}
     <title> Danse Macabre</title>
+
     {% endif %} {% block styles %} 
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/filter.css' %}">
@@ -17,37 +20,72 @@
      {% endblock %}
 </head>
 <body>
+    <div class="container">
+
+    <div style="text-align: center">
 
 {% block content %}
 <br>
 <br>
 
-<div class="container">
+<div class ="centered">
+
+
 <form method = "get" action= {% url 'search' %}>
    {{ filter.form.as_p}} 
-   <button type="submit">Search The Great Beyond</button>
+   <button type="submit">Filter By Category</button>
 </form>
 <br>
 <br>
+<div
 
-<div class ="row">
     
 <div class ="imageresult card-deck">
     
-<ul>
     {% for image in filter.qs %}
     
-    <img src ="{{ image.image.url }}" class="img-responsive" style="width:100%"> <br>
+     <!-- <img src ="{{ image.image.url }}" class="img-responsive" style="width:100%"> <br>
           {{ image.title }} <br> <br>
           {{image.description}}</li>
     <br>
-    <br>
-    {% endfor %}
+    <br> -->
+
     
-    {% endblock %}
+   
+
+<div class="container">
+
+    <div class="row mt-3">
+        <figure>
+            <img src="{{image.image.url}}" class="img-fluid">
+        </figure>
+    </div>
+
+    <div class="row">
+        <h1 class="text-center">{{image.title}}</h1>
+    </div>
+
+    <div class="row">
+        <p>{{image.description}}</p>
+    </div>
+
+    <div class="row">
+        <p class="badge badge-secondary">Category: {{image.category}}</p>
+        <p style="margin-left:20px" class="badge badge-warning">Artist: {{image.artist}}</p>
+    </div>
+
+</div>
+{% endfor %}
+    
+    {% endblock %} 
+
+
             </div>
         </div>
+       
      </div>
+    </div>
+    </div>
     
 </body>
 
