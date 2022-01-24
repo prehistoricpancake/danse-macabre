@@ -14,8 +14,7 @@ class Artist(models.Model):
     
     
 class Category(models.Model):
-    name = models.TextField()  
-    
+    name = models.TextField()     
 
     def __str__(self):
         return self.name
@@ -30,8 +29,8 @@ class Image(models.Model):
     description = models.TextField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     
-    def __str__(self):
-        return self.category
+    # def __str__(self):
+    #     return self.category
     
     @classmethod
     def my_images(cls):
@@ -51,7 +50,7 @@ class Image(models.Model):
         pass
 
     def update_image(self, id):
-        pass
+        self.update()
 
     def get_image_by_id(id):
         pass

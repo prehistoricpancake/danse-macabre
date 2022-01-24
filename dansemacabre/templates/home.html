@@ -1,0 +1,97 @@
+{%extends 'main/base.html'%}
+{% load bootstrap4 %} 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <link rel="stylesheet" href="{% static 'css/home.css' %}">
+ {% block content %}
+
+ {{block.super}}
+ </head>
+ <body>
+<div style="text-align: center">
+<h1>Welcome To The Danse Macabre</h1>
+<p>”According to legend, Death appears at midnight every year on Halloween. Death calls forth the dead from their graves to dance for him while he plays his fiddle. 
+    His skeletons dance for him until the rooster crows at dawn, when they must return to their graves until the next year.”<br>
+ -- Danse macabre (Saint-Saëns)-- Wikipedia.</p>
+{% include "searchfilter.html" %}  
+</div>
+
+ {% for image in images %}    
+{{ forloop.parentloop.counter }}
+
+    
+    <!-- IMAGE WAS HERE!!--> 
+     <div class="container">
+        <div class="card">
+  
+  <div class="card-body">
+    
+     <div id="each-image">
+<a href="{{image.image_id}}">             
+                
+                   
+                       
+<img src="{{ image.image.url }}" class="img-responsive" style="width:100%">
+                        
+                   <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+
+                    
+                    <div class="card-body text-center">
+                        <h4 class="card-title">
+                            <!-- Button trigger modal -->
+                            
+                            <button id="trigger-modal" class="btn btn-info" data-toggle="modal" data-url="{{image.image.url}}"
+                                data-image-name="{{image.title}}" data-description="{{image.description}}" data-location="{{image.location}}"
+                                data-toggle="modal" data-target="#myModal">
+                                See More
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <span aria-hidden="true">&times;</span>
+                                        <span class="sr-only">Close</span>
+                                    </button>                    
+                                    <h4 class="modal-title" id="myModalLabel"></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <img id="modal-image" src="" class="img-responsive" class="showimage" alt="Image" style="width:50%;height:50%; ;padding-top:5%;margin-left:5vh;">
+                                    </a>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </p>
+                </div>
+                </div>
+                
+            {% endfor %}
+                     
+                
+                </div>
+
+            </div>
+        </div>
+
+</div>
+        
+        {% endblock %}
+    </div>
+        </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</body>

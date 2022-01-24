@@ -1,0 +1,54 @@
+{% load bootstrap4 %}
+ {% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> {% if title %}
+    <title>Danse Macabre - {{title}}</title>
+    {% else %}
+    <title> Danse Macabre</title>
+    {% endif %} {% block styles %} 
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/filter.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Merriweather" rel="stylesheet">
+     {% endblock %}
+</head>
+<body>
+
+{% block content %}
+<br>
+<br>
+
+<div class="container">
+<form method = "get" action= {% url 'search' %}>
+   {{ filter.form.as_p}} 
+   <button type="submit">Search The Great Beyond</button>
+</form>
+<br>
+<br>
+
+<div class ="row">
+    
+<div class ="imageresult card-deck">
+    
+<ul>
+    {% for image in filter.qs %}
+    
+    <img src ="{{ image.image.url }}" class="img-responsive" style="width:100%"> <br>
+          {{ image.title }} <br> <br>
+          {{image.description}}</li>
+    <br>
+    <br>
+    {% endfor %}
+    
+    {% endblock %}
+            </div>
+        </div>
+     </div>
+    
+</body>
+
+</html>

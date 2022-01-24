@@ -1,0 +1,13 @@
+body {
+    background-color: #f1f1f1;
+    font-family: 'Merriweather', serif;
+font-family: 'EB Garamond', serif;
+}
+
+.card-deck {
+    height: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 1px;
+}
