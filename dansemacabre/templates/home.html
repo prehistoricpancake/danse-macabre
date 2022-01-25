@@ -7,46 +7,41 @@
 
  </head>
  <body>
-    {% block content %}
+    <div class="container">
+        {% block content %}
 
-<div style="text-align: center">
-<h1>Welcome to The Danse Macabre</h1>
-<p>"According to legend, Death appears at midnight every year on Halloween. Death calls forth the dead from their graves to dance for him while he plays his fiddle (here represented by a solo violin). His skeletons dance for him until the rooster crows at dawn, when they must return to their graves until the next year."
-    -- Analysis of Danse macabre (Saint-Saëns) --
+<h1 class="text-center">Welcome to The Danse Macabre</h1>
+<p class="text-center">"According to legend, Death appears at midnight every year on Halloween. Death calls forth the dead from their graves to dance for him while he plays his fiddle. His skeletons dance for him until the rooster crows at dawn, when they must return to their graves until the next year."
+    <p class="text-center"> -- Analysis of Danse macabre (Saint-Saëns) --</p>
 </p>
 {% include "searchfilter.html" %}  
 </div>
-
- {% for image in images %}    
-{{ forloop.parentloop.counter }}
-
+  <div class="container">
+    {% for image in images %}    
+    {{ forloop.parentloop.counter }}  
     
-    <!-- IMAGE WAS HERE!!--> 
-     <div class="container">
-        <div class="card">
+    
+<div class="card" style="width: 100%">
+    <div class="card-body">
+        <img src="{{ image.image.url }}" />
+      <br />
+    </div>
+  </div>
+                            
+    
+        <br />
+    {%endfor%}
+  </div>
+
+
+{% endblock %}
   
-       <div class="card-body">
-    
-      <a href="{{image.image_id}}">             
-                
-                   
-                       
-<img src="{{ image.image.url }}" class="img-responsive" style="width:100%">
-                        
-                 
+  </div>
 
-                    
-                    
-                
-            {% endfor %}
-                     
-                
-                </div>
-
-            </div>
-
-        
-        {% endblock %}
-    
-</div>
 </body>
+
+
+
+
+
+
