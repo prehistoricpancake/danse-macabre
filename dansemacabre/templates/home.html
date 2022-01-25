@@ -1,0 +1,47 @@
+{% load bootstrap4 %} 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+ </head>
+ <body>
+    <div class="container">
+        {% block content %}
+
+<h1 class="text-center">Welcome to The Danse Macabre</h1>
+<p class="text-center">"According to legend, Death appears at midnight every year on Halloween. Death calls forth the dead from their graves to dance for him while he plays his fiddle. His skeletons dance for him until the rooster crows at dawn, when they must return to their graves until the next year."
+    <p class="text-center"> -- Analysis of Danse macabre (Saint-Saëns) --</p>
+</p>
+{% include "searchfilter.html" %}  
+</div>
+  <div class="container">
+    {% for image in images %}    
+    {{ forloop.parentloop.counter }}  
+    
+    
+<div class="card" style="width: 100%">
+    <div class="card-body">
+        <img src="{{ image.image.url }}" />
+      <br />
+    </div>
+  </div>
+                            
+    
+        <br />
+    {%endfor%}
+  </div>
+
+
+{% endblock %}
+  
+  </div>
+
+</body>
+
+
+
+
+
+

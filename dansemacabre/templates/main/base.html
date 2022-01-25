@@ -1,0 +1,37 @@
+{% load bootstrap4 %} 
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> 
+    {% if title %}
+    <title>The Danse Macabre - {{title}}</title>
+    {% else %}
+    <title> Danse Macabre</title>
+    {% endif %} 
+    {% block styles %} 
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
+
+    {% endblock %}
+</head>
+
+<body>
+   
+   
+    {% block content %} 
+    {%endblock%} 
+    <!-- {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{% static 'js/modal.js' %}"></script>
+    
+
+     {% bootstrap_javascript %}
+     {% endblock %} -->
+
+</body>
+
+</html>
