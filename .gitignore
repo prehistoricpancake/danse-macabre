@@ -1,3 +1,5 @@
 env/
 dansemacabre/__pycache__/
 .env
+/dansemacabre/.mypgpass
+/dansemacabre/.pg_service.conf
