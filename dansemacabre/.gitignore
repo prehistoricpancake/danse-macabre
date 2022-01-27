@@ -1,0 +1,5 @@
+.env
+env/
+dansemacabre/__pycache__/
+.env
+/dansemacabre/.mypgpass
