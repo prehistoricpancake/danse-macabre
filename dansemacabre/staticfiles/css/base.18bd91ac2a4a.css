@@ -1,0 +1,32 @@
+body {
+    font-family: 'Merriweather', serif;
+    font-family: 'EB Garamond', serif;
+}
+
+
+h1{
+    text-align: center;
+    color: black;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 65px;
+}
+
+.view .overlay img{
+    width: 500px;
+    height: 500px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+    .column {
+        width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
